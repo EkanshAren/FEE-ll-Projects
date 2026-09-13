@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherPro | Professional Weather Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Leaflet Map -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<header>
+
+    <div class="logo">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <span>WeatherPro</span>
+    </div>
+
+    <div class="search-box">
+
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="Search city...">
+
+        <button id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button id="locationBtn">
+            <i class="fa-solid fa-location-crosshairs"></i>
+        </button>
+
+    </div>
+
+    <div class="header-buttons">
+
+        <button id="unitBtn">
+            °C
+        </button>
+
+        <button id="themeBtn">
+            🌙
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<!-------------------- HERO CARD ---------------------->
+
+<section class="hero">
+
+<div class="current-weather glass">
+
+    <div class="weather-left">
+
+        <h2 id="city">
+            Chandigarh
+        </h2>
+
+        <p id="date">
+            Monday
+        </p>
+
+        <h1 id="temperature">
+            29°C
+        </h1>
+
+        <p id="condition">
+            Clear Sky
+        </p>
+
+        <p id="feelsLike">
+            Feels Like 31°C
+        </p>
+
+    </div>
+
+    <div class="weather-right">
+
+        <img
+        id="weatherIcon"
+        src=""
+        alt="weather">
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!---------------- WEATHER DETAILS ------------------>
+
+<section class="details">
+
+<div class="card glass">
+
+<i class="fa-solid fa-droplet"></i>
+
+<h3>Humidity</h3>
+
+<p id="humidity">
+70%
+</p>
+
+</div>
+
+<div class="card glass">
+
+<i class="fa-solid fa-wind"></i>
+
+<h3>Wind</h3>
+
+<p id="wind">
+12 km/h
+</p>
+
+</div>
+
+<div class="card glass">
+
+<i class="fa-solid fa-gauge-high"></i>
+
+<h3>Pressure</h3>
+
+<p id="pressure">
+1012 hPa
+</p>
+
+</div>
+
+<div class="card glass">
+
+<i class="fa-solid fa-eye"></i>
+
+<h3>Visibility</h3>
+
+<p id="visibility">
+10 km
+</p>
+
+</div>
+
+</section>
+
+
+<!---------------- HOURLY FORECAST ------------------>
+
+<section>
+
+<h2 class="title">
+Hourly Forecast
+</h2>
+
+<div
+class="hourly"
+id="hourlyForecast">
+
+</div>
+
+</section>
+
+
+<!----------------- 5 DAY FORECAST ------------------->
+
+<section>
+
+<h2 class="title">
+5-Day Forecast
+</h2>
+
+<div
+class="forecast"
+id="forecast">
+
+</div>
+
+</section>
+
+
+<!---------------- EXTRA DETAILS --------------------->
+
+<section class="extra">
+
+<div class="glass info">
+
+<h2>
+Sunrise & Sunset
+</h2>
+
+<div class="row">
+
+<div>
+
+<h3>🌅 Sunrise</h3>
+
+<p id="sunrise">
+6:05 AM
+</p>
+
+</div>
+
+<div>
+
+<h3>🌇 Sunset</h3>
+
+<p id="sunset">
+7:15 PM
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="glass info">
+
+<h2>
+Air Quality
+</h2>
+
+<h1 id="aqi">
+Good
+</h1>
+
+<p id="aqiValue">
+AQI : 42
+</p>
+
+</div>
+
+</section>
+
+
+<!---------------- FAVORITES ------------------>
+
+<section>
+
+<h2 class="title">
+
+Favorite Cities
+
+</h2>
+
+<div id="favorites">
+
+</div>
+
+</section>
+
+
+<!---------------- CHART ------------------>
+
+<section>
+
+<h2 class="title">
+
+Temperature Trend
+
+</h2>
+
+<div class="glass chartCard">
+
+<canvas id="tempChart">
+
+</canvas>
+
+</div>
+
+</section>
+
+
+<!---------------- MAP ------------------>
+
+<section>
+
+<h2 class="title">
+
+Weather Map
+
+</h2>
+
+<div
+id="map">
+
+</div>
+
+</section>
+
+
+<!--------------- FOOTER ----------------->
+
+<footer>
+
+Made with ❤️ using OpenWeather API
+
+</footer>
+
+</main>
+
+
+
+<!------------- Chart JS ------------->
+
+<script
+src="https://cdn.jsdelivr.net/npm/chart.js">
+</script>
+
+<!------------- Leaflet ------------->
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<!------------- Config ------------->
+
+<script src="config.js"></script>
+
+<!------------- Script ------------->
+
+<script src="script.js"></script>
+
+</body>
+</html>

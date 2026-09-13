@@ -1,0 +1,1168 @@
+/* ======================================================
+   WeatherPro - Professional Weather Dashboard
+   style.css (Part 1)
+====================================================== */
+
+/* ---------- Google Font ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ---------- Variables ---------- */
+
+:root{
+
+    --primary:#4F8CFF;
+    --secondary:#7B61FF;
+
+    --glass:rgba(255,255,255,.18);
+
+    --glassBorder:rgba(255,255,255,.25);
+
+    --text:#ffffff;
+
+    --dark:#111827;
+
+    --shadow:0 15px 40px rgba(0,0,0,.25);
+
+    --radius:22px;
+
+}
+
+/* ---------- Reset ---------- */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:"Poppins",sans-serif;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #4facfe,
+        #00f2fe,
+        #6a82fb,
+        #fc5c7d
+    );
+
+    background-size:400% 400%;
+
+    animation:gradientBG 18s ease infinite;
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+/* ---------- Animated Background ---------- */
+
+@keyframes gradientBG{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    50%{
+
+        background-position:100% 50%;
+
+    }
+
+    100%{
+
+        background-position:0% 50%;
+
+    }
+
+}
+
+/* Floating circles */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    overflow:hidden;
+
+}
+
+.background::before,
+
+.background::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.45;
+
+}
+
+.background::before{
+
+    background:#00d2ff;
+
+    top:-120px;
+
+    left:-100px;
+
+}
+
+.background::after{
+
+    background:#ff4ecd;
+
+    bottom:-140px;
+
+    right:-120px;
+
+}
+
+/* ---------- Glass Effect ---------- */
+
+.glass{
+
+    background:var(--glass);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid var(--glassBorder);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ---------- Header ---------- */
+
+header{
+
+    width:95%;
+
+    max-width:1450px;
+
+    margin:25px auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/* ---------- Logo ---------- */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.logo i{
+
+    font-size:40px;
+
+    color:#FFD93D;
+
+    animation:spinCloud 8s linear infinite;
+
+}
+
+@keyframes spinCloud{
+
+    100%{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ---------- Search Box ---------- */
+
+.search-box{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+}
+
+.search-box input{
+
+    width:60%;
+
+    max-width:520px;
+
+    height:56px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    padding:0 25px;
+
+    font-size:17px;
+
+    color:white;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+}
+
+.search-box input::placeholder{
+
+    color:#f0f0f0;
+
+}
+
+.search-box button{
+
+    width:56px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    font-size:18px;
+
+    transition:.35s;
+
+}
+
+.search-box button:hover{
+
+    transform:translateY(-5px);
+
+    background:#4F8CFF;
+
+}
+
+/* ---------- Header Buttons ---------- */
+
+.header-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.header-buttons button{
+
+    width:58px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.header-buttons button:hover{
+
+    transform:scale(1.08);
+
+    background:#ffffff;
+
+    color:#333;
+
+}
+
+/* ---------- Main ---------- */
+
+main{
+
+    width:95%;
+
+    max-width:1450px;
+
+    margin:auto;
+
+    padding-bottom:80px;
+
+}
+
+/* ---------- Hero ---------- */
+
+.hero{
+
+    margin-top:35px;
+
+}
+
+/* ---------- Current Weather ---------- */
+
+.current-weather{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:45px;
+
+    min-height:280px;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.current-weather::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:50%;
+
+    top:-100px;
+
+    right:-80px;
+
+}
+
+/* ---------- Left ---------- */
+
+.weather-left{
+
+    z-index:2;
+
+}
+
+.weather-left h2{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.weather-left p{
+
+    opacity:.92;
+
+    margin:10px 0;
+
+    font-size:18px;
+
+}
+
+.weather-left h1{
+
+    font-size:95px;
+
+    font-weight:700;
+
+    margin:18px 0;
+
+}
+
+/* ---------- Right ---------- */
+
+.weather-right{
+
+    z-index:2;
+
+}
+
+.weather-right img{
+
+    width:200px;
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ---------- Section Titles ---------- */
+
+.title{
+
+    margin:45px 0 22px;
+
+    font-size:30px;
+
+    font-weight:600;
+
+}
+
+/*======================================================
+        WEATHER DETAILS CARDS
+======================================================*/
+
+.details{
+
+    margin-top:35px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.card{
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.25);
+
+}
+
+.card i{
+
+    font-size:38px;
+
+    margin-bottom:18px;
+
+    color:#FFD54F;
+
+}
+
+.card h3{
+
+    font-size:18px;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+
+}
+
+.card p{
+
+    font-size:26px;
+
+    font-weight:700;
+
+}
+
+
+/*======================================================
+                HOURLY FORECAST
+======================================================*/
+
+.hourly{
+
+    display:flex;
+
+    gap:20px;
+
+    overflow-x:auto;
+
+    padding:10px 0 20px;
+
+    scroll-behavior:smooth;
+
+}
+
+.hourly::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.hourly::-webkit-scrollbar-thumb{
+
+    background:white;
+
+    border-radius:20px;
+
+}
+
+.hourCard{
+
+    min-width:130px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
+}
+
+.hourCard:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.hourCard img{
+
+    width:70px;
+
+}
+
+.hourCard h3{
+
+    margin-bottom:10px;
+
+}
+
+.hourCard h2{
+
+    margin-top:10px;
+
+}
+
+
+/*======================================================
+                5 DAY FORECAST
+======================================================*/
+
+.forecast{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:22px;
+
+}
+
+.forecastCard{
+
+    padding:25px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
+}
+
+.forecastCard:hover{
+
+    transform:scale(1.05);
+
+}
+
+.forecastCard img{
+
+    width:90px;
+
+}
+
+.forecastCard h3{
+
+    margin:12px 0;
+
+}
+
+.forecastCard h2{
+
+    font-size:34px;
+
+}
+
+
+/*======================================================
+            SUNRISE + AQI
+======================================================*/
+
+.extra{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+.info{
+
+    padding:35px;
+
+}
+
+.info h2{
+
+    margin-bottom:25px;
+
+}
+
+.row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:25px;
+
+}
+
+.row div{
+
+    text-align:center;
+
+}
+
+.row h3{
+
+    margin-bottom:12px;
+
+}
+
+.row p{
+
+    font-size:24px;
+
+    font-weight:600;
+
+}
+
+#aqi{
+
+    font-size:60px;
+
+    margin:25px 0;
+
+    color:#90EE90;
+
+}
+
+#aqiValue{
+
+    font-size:22px;
+
+}
+
+
+/*======================================================
+            FAVORITES
+======================================================*/
+
+#favorites{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+}
+
+.favorite{
+
+    padding:16px 30px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.15);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.favorite:hover{
+
+    background:#ffffff;
+
+    color:#222;
+
+    transform:translateY(-4px);
+
+}
+
+
+/*======================================================
+                CHART
+======================================================*/
+
+.chartCard{
+
+    margin-top:20px;
+
+    padding:30px;
+
+    height:420px;
+
+}
+
+.chartCard canvas{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+
+/*======================================================
+                    MAP
+======================================================*/
+
+#map{
+
+    margin-top:25px;
+
+    width:100%;
+
+    height:500px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+
+/*======================================================
+                    FOOTER
+======================================================*/
+
+footer{
+
+    margin-top:60px;
+
+    text-align:center;
+
+    padding:25px;
+
+    font-size:15px;
+
+    opacity:.9;
+
+}
+
+
+/*======================================================
+                DARK MODE
+======================================================*/
+
+body.dark{
+
+    background:#08111F;
+
+    color:white;
+
+}
+
+body.dark .glass{
+
+    background:rgba(20,28,45,.55);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+body.dark input{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+body.dark .favorite{
+
+    background:#18263E;
+
+}
+
+
+/*======================================================
+                RESPONSIVE
+======================================================*/
+
+@media(max-width:1200px){
+
+.details{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.forecast{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+.extra{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+@media(max-width:900px){
+
+header{
+
+flex-direction:column;
+
+}
+
+.search-box{
+
+width:100%;
+
+}
+
+.search-box input{
+
+width:100%;
+
+}
+
+.current-weather{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:25px;
+
+}
+
+.weather-left h1{
+
+font-size:70px;
+
+}
+
+.weather-right img{
+
+width:150px;
+
+}
+
+.forecast{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+@media(max-width:600px){
+
+.details{
+
+grid-template-columns:1fr;
+
+}
+
+.forecast{
+
+grid-template-columns:1fr;
+
+}
+
+.logo{
+
+font-size:22px;
+
+}
+
+.logo i{
+
+font-size:30px;
+
+}
+
+.title{
+
+font-size:24px;
+
+}
+
+.weather-left h2{
+
+font-size:28px;
+
+}
+
+.weather-left h1{
+
+font-size:56px;
+
+}
+
+.weather-left p{
+
+font-size:16px;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+.info{
+
+padding:25px;
+
+}
+
+.row{
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+.chartCard{
+
+height:320px;
+
+}
+
+#map{
+
+height:350px;
+
+}
+
+}
+
+
+/*======================================================
+            LOADING ANIMATION
+======================================================*/
+
+.loading{
+
+animation:pulse 1.2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+opacity:.5;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.5;
+
+}
+
+}
+
+
+/*======================================================
+            FADE ANIMATION
+======================================================*/
+
+.fadeIn{
+
+animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/*======================================================
+            BUTTON RIPPLE EFFECT
+======================================================*/
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+button::after{
+
+content:"";
+
+position:absolute;
+
+width:0;
+
+height:0;
+
+background:rgba(255,255,255,.4);
+
+border-radius:50%;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+transition:.6s;
+
+}
+
+button:active::after{
+
+width:250px;
+
+height:250px;
+
+opacity:0;
+
+}
+
