@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #fcefe6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    text-align: center;
+    width: 90%;
+    max-width: 650px;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.intro {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.meme-card {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.meme-card img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.meme-card h2 {
+    margin: 20px 0 8px;
+    color: #222;
+}
+
+.meme-card p {
+    color: #666;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 12px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    background: #ed6a5a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #d95748;
+}
+
+footer {
+    margin-top: 25px;
+    color: #777;
+    font-size: 14px;
+}
